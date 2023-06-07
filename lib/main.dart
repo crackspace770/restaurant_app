@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/list_page.dart';
-import 'package:restaurant_app/model/restaurant.dart';
-import 'detail_page.dart';
+import 'package:restaurant_app/model/restaurant_detail.dart';
+import 'package:restaurant_app/response/restaurant_detail_response.dart';
+import 'package:restaurant_app/ui/detail_page.dart';
+import 'package:restaurant_app/ui/home_page.dart';
+import 'package:restaurant_app/ui/search_page.dart';
+import 'package:http/http.dart';
+import 'model/restaurant.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -20,12 +25,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: RestaurantListPage.routeName,
+      initialRoute: HomePage.routeName,
       routes: {
-        RestaurantListPage.routeName: (context) => const RestaurantListPage(),
+        HomePage.routeName: (context) => const HomePage(),
+        RestaurantSearchPage.routeName:  (context) => RestaurantSearchPage(),
         RestaurantDetailPage.routeName: (context) => RestaurantDetailPage(
-          restaurant:
-          ModalRoute.of(context)?.settings.arguments as Restaurant,
+          restaurantId:
+          ModalRoute.of(context)?.settings.arguments as String,
         ),
 
       },

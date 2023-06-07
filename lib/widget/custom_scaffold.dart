@@ -33,6 +33,7 @@ class CustomScaffold extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
             ),
           ),
+
         ],
       ),
     );
